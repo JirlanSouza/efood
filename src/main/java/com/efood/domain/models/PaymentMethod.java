@@ -1,11 +1,10 @@
 package com.efood.domain.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
+import java.util.Collection;
 
 @Entity
 @Data
@@ -17,4 +16,14 @@ public class PaymentMethod {
     private Long id;
 
     private String description;
+    @ManyToMany(mappedBy = "paymentMethods")
+    private Collection<Restaurant> restaurants;
+
+    public Collection<Restaurant> getRestaurants() {
+        return restaurants;
+    }
+
+    public void setRestaurants(Collection<Restaurant> restaurants) {
+        this.restaurants = restaurants;
+    }
 }

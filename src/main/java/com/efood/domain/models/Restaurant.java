@@ -8,6 +8,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Data
@@ -27,6 +28,14 @@ public class Restaurant {
 
     @ManyToOne
     private Kitchen kitchen;
+
+    @ManyToMany
+    @JoinTable(
+        name = "restaurant_payment_method",
+        joinColumns = @JoinColumn(name = "restaurant_id"),
+        inverseJoinColumns = @JoinColumn(name = "payment_method_id")
+    )
+    private List<PaymentMethod> paymentMethods;
 
     @CreationTimestamp
     @Column(nullable = false, columnDefinition = "datetime")
