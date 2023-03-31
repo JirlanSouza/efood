@@ -1,16 +1,7 @@
 package com.efood.domain.repositories;
 
 import com.efood.domain.models.PaymentMethod;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
-import java.util.Optional;
-
-public interface PaymentMethodRepository {
-    List<PaymentMethod> all();
-
-    Optional<PaymentMethod> find(Long id);
-
-    PaymentMethod save(PaymentMethod PaymentMethod);
-
-    void delete(Long id);
+public interface PaymentMethodRepository extends JpaRepository<PaymentMethod, Long> {
 }

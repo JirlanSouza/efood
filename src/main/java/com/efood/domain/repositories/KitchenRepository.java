@@ -1,16 +1,7 @@
 package com.efood.domain.repositories;
 
 import com.efood.domain.models.Kitchen;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
-import java.util.Optional;
-
-public interface KitchenRepository {
-    List<Kitchen> all();
-
-    Optional<Kitchen> find(Long id);
-
-    Kitchen save(Kitchen kitchen);
-
-    void delete(Long id);
+public interface KitchenRepository extends JpaRepository<Kitchen, Long> {
 }
