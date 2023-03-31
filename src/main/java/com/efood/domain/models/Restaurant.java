@@ -37,6 +37,14 @@ public class Restaurant {
     )
     private List<PaymentMethod> paymentMethods;
 
+    @ManyToMany
+    @JoinTable(
+        name = "restaurant_product",
+        joinColumns = @JoinColumn(name = "restaurant_id"),
+        inverseJoinColumns = @JoinColumn(name = "product_id")
+    )
+    private List<Product> products;
+
     @CreationTimestamp
     @Column(nullable = false, columnDefinition = "datetime")
     private LocalDateTime createdAt;
